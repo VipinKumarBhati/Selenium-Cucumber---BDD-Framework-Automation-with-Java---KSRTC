@@ -11,13 +11,9 @@ public class Constants {
 	
 	public final static String GECKO_DRIVER_DIRECTORY_MAC = System.getProperty("user.dir") + BasePage.pathSeparator() + "src" + BasePage.pathSeparator() + "test" + BasePage.pathSeparator() + "java" + BasePage.pathSeparator() + "resources" + BasePage.pathSeparator() + "geckodriver_mac";
 	
-	public final static String GECKO_DRIVER_DIRECTORY_LINUX = System.getProperty("user.dir") + BasePage.pathSeparator() + "src" + BasePage.pathSeparator() + "test" + BasePage.pathSeparator() + "java" + BasePage.pathSeparator() + "resources" + BasePage.pathSeparator() + "geckodriver_linux";
-	
 	public final static String CHROME_DRIVER_DIRECTORY = System.getProperty("user.dir") + BasePage.pathSeparator() + "src" + BasePage.pathSeparator() + "test" + BasePage.pathSeparator() + "java" + BasePage.pathSeparator() + "resources" + BasePage.pathSeparator() + "chromedriver.exe";
 	
 	public final static String CHROME_DRIVER_DIRECTORY_MAC = System.getProperty("user.dir") + BasePage.pathSeparator() + "src" + BasePage.pathSeparator() + "test" + BasePage.pathSeparator() + "java" + BasePage.pathSeparator() + "resources" + BasePage.pathSeparator() + "chromedriver_mac";
-	
-	public final static String CHROME_DRIVER_DIRECTORY_LINUX = System.getProperty("user.dir") + BasePage.pathSeparator() + "src" + BasePage.pathSeparator() + "test" + BasePage.pathSeparator() + "java" + BasePage.pathSeparator() + "resources" + BasePage.pathSeparator() + "chromedriver_linux";
 	
 	public final static String IE_DRIVER_DIRECTORY = System.getProperty("user.dir") + BasePage.pathSeparator() + "src" + BasePage.pathSeparator() + "test" + BasePage.pathSeparator() + "java" + BasePage.pathSeparator() + "resources" + BasePage.pathSeparator() + "IEDriverServer.exe";
 	

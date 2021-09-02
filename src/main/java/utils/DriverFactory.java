@@ -87,26 +87,6 @@ public class DriverFactory {
 				}
 			}
 			
-			else if(operSys.contains("nux") || operSys.contains("nix") || operSys.contains("aix")){
-				switch(browserName){
-				
-				case "firefox":
-					if (null == driver){
-						System.setProperty("webdriver.gecko.driver", Constants.GECKO_DRIVER_DIRECTORY_LINUX);
-						DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-						capabilities.setCapability("marionette", true);
-						driver = new FirefoxDriver();
-					}
-					break;
-				case "chrome":
-					if (null == driver){
-						System.setProperty("webdriver.chrome.driver", Constants.CHROME_DRIVER_DIRECTORY_LINUX);
-						driver = new ChromeDriver();
-						driver.manage().window().maximize();
-					}
-					break;
-				}
-			}
 		}
 		catch(Exception e){
 			System.out.println("Unable to load browser : " + e.getMessage());
