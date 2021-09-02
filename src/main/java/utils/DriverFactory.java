@@ -36,32 +36,76 @@ public class DriverFactory {
 			FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + BasePage.pathSeparator() + "src" + BasePage.pathSeparator() + "main" + BasePage.pathSeparator() + "java" + BasePage.pathSeparator() + "config" + BasePage.pathSeparator() + "config.properties");
 			p.load(fi);
 			String browserName = p.getProperty("browser");
-			switch(browserName){
-
-			case "firefox":
-				if (null == driver){
-					System.setProperty("webdriver.gecko.driver", Constants.GECKO_DRIVER_DIRECTORY);
-					DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-					capabilities.setCapability("marionette", true);
-					driver = new FirefoxDriver();
+			String operSys = System.getProperty("os.name").toLowerCase();
+			if(operSys.contains("win")){
+				switch(browserName){
+	
+				case "firefox":
+					if (null == driver){
+						System.setProperty("webdriver.gecko.driver", Constants.GECKO_DRIVER_DIRECTORY);
+						DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+						capabilities.setCapability("marionette", true);
+						driver = new FirefoxDriver();
+					}
+					break;
+				case "chrome":
+					if (null == driver){
+						System.setProperty("webdriver.chrome.driver", Constants.CHROME_DRIVER_DIRECTORY);
+						driver = new ChromeDriver();
+						driver.manage().window().maximize();
+					}
+					break;
+				case "ie":
+					if (null == driver){
+						DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+						System.setProperty("webdriver.ie.driver", Constants.IE_DRIVER_DIRECTORY);
+						capabilities.setCapability("ignoreZoomSetting", true);
+						driver = new InternetExplorerDriver(capabilities);
+						driver.manage().window().maximize();
+					}
+					break;
 				}
-				break;
-			case "chrome":
-				if (null == driver){
-					System.setProperty("webdriver.chrome.driver", Constants.CHROME_DRIVER_DIRECTORY);
-					driver = new ChromeDriver();
-					driver.manage().window().maximize();
+			}
+			else if(operSys.contains("mac")){
+				switch(browserName){
+				
+				case "firefox":
+					if (null == driver){
+						System.setProperty("webdriver.gecko.driver", Constants.GECKO_DRIVER_DIRECTORY_MAC);
+						DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+						capabilities.setCapability("marionette", true);
+						driver = new FirefoxDriver();
+					}
+					break;
+				case "chrome":
+					if (null == driver){
+						System.setProperty("webdriver.chrome.driver", Constants.CHROME_DRIVER_DIRECTORY_MAC);
+						driver = new ChromeDriver();
+						driver.manage().window().maximize();
+					}
+					break;
 				}
-				break;
-			case "ie":
-				if (null == driver){
-					DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-					System.setProperty("webdriver.ie.driver", Constants.IE_DRIVER_DIRECTORY);
-					capabilities.setCapability("ignoreZoomSetting", true);
-					driver = new InternetExplorerDriver(capabilities);
-					driver.manage().window().maximize();
+			}
+			
+			else if(operSys.contains("nux") || operSys.contains("nix") || operSys.contains("aix")){
+				switch(browserName){
+				
+				case "firefox":
+					if (null == driver){
+						System.setProperty("webdriver.gecko.driver", Constants.GECKO_DRIVER_DIRECTORY_LINUX);
+						DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+						capabilities.setCapability("marionette", true);
+						driver = new FirefoxDriver();
+					}
+					break;
+				case "chrome":
+					if (null == driver){
+						System.setProperty("webdriver.chrome.driver", Constants.CHROME_DRIVER_DIRECTORY_LINUX);
+						driver = new ChromeDriver();
+						driver.manage().window().maximize();
+					}
+					break;
 				}
-				break;
 			}
 		}
 		catch(Exception e){
