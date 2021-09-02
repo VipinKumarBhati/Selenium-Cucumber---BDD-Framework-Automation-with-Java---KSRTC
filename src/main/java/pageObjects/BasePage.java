@@ -440,8 +440,8 @@ public class BasePage extends DriverFactory {
 	public static String getScreenshot(String s) throws IOException {
 		System.out.println(s);
 		File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-		String imagePath = System.getProperty("user.dir") + "\\FailedCaseScreenshot\\" + s + ".png";
-		createReportPath(System.getProperty("user.dir") + "\\FailedCaseScreenshot\\");
+		String imagePath = System.getProperty("user.dir") + pathSeparator() + "FailedCaseScreenshot" + pathSeparator() + s + ".png";
+		createReportPath(System.getProperty("user.dir") + pathSeparator() + "FailedCaseScreenshot");
 		System.out.println(imagePath);
 		FileUtils.copyFile(srcFile, new File(imagePath));
 		return imagePath;
@@ -460,6 +460,15 @@ public class BasePage extends DriverFactory {
 		}
 		else{
 			System.out.println("Directory already exists at: " + path);
+		}
+	}
+	public static String pathSeparator(){
+		String operSys = System.getProperty("os.name").toLowerCase();
+		if(operSys.contains("win")){
+			return "\\";
+		}
+		else{
+			return "/";
 		}
 	}
 }

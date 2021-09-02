@@ -53,6 +53,11 @@ public class ExtentReportManager {
                 createReportPath(windowsPath);
                 System.out.println("ExtentReport Path for WINDOWS: " + windowsPath + "\n");
                 break;
+            case LINUX: // Both MAC and LINUX uses e "/" as separator
+                reportFileLocation = macReportFileLoc;
+                createReportPath(macPath);
+                System.out.println("ExtentReport Path for LINUX: " + macPath + "\n");
+                break;
             default:
                 System.out.println("ExtentReport path has not been set! There is a problem!\n");
                 break;

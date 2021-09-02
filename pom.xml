@@ -24,7 +24,7 @@
 						<target>1.8</target>
 						<fork>true</fork>
 						<!--<executable>C:\Program Files\Java\jdk1.8.0_121\bin\javac.exe</executable> -->
-						<executable>${env.JAVA_HOME}\bin\javac.exe</executable>
+						<executable>${JAVA_HOME}\bin\javac.exe</executable>
 					</configuration>
 				</plugin>
 				<plugin>

@@ -28,7 +28,7 @@ public class Login_Page extends BasePage{
 	
 	public Login_Page getKRSTC_Page() throws IOException{
 		Properties p = new Properties();
-		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + "\\src\\main\\java\\config\\config.properties");
+		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + pathSeparator() + "src"+ pathSeparator() +"main"+ pathSeparator() +"java"+ pathSeparator() +"config"+ pathSeparator() +"config.properties");
 		p.load(fi);
 		String url = p.getProperty("url");
 		//System.out.println(browserName);
