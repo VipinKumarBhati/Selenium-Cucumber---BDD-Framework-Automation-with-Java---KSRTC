@@ -438,7 +438,6 @@ public class BasePage extends DriverFactory {
 	}
 	
 	public static String getScreenshot(String s) throws IOException {
-		System.out.println(s);
 		File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 		String imagePath = System.getProperty("user.dir") + pathSeparator() + "FailedCaseScreenshot" + pathSeparator() + s + ".png";
 		createReportPath(System.getProperty("user.dir") + pathSeparator() + "FailedCaseScreenshot");
@@ -448,7 +447,6 @@ public class BasePage extends DriverFactory {
 	}
 	
 	private static void createReportPath(String path){
-		System.out.println("Hello" + path);
 		File testDirectory = new File(path);
 		if(!testDirectory.exists()) {
 			if(testDirectory.mkdir()){
