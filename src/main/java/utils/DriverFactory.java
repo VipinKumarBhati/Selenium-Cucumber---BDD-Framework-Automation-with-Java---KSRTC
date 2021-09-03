@@ -68,15 +68,6 @@ public class DriverFactory {
 			}
 			else if(operSys.contains("mac")){
 				switch(browserName){
-				
-				case "firefox":
-					if (null == driver){
-						System.setProperty("webdriver.gecko.driver", Constants.GECKO_DRIVER_DIRECTORY_MAC);
-						DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-						capabilities.setCapability("marionette", true);
-						driver = new FirefoxDriver();
-					}
-					break;
 				case "chrome":
 					if (null == driver){
 						System.setProperty("webdriver.chrome.driver", Constants.CHROME_DRIVER_DIRECTORY_MAC);

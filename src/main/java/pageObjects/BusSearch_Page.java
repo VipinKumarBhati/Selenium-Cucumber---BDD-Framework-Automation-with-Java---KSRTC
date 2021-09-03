@@ -19,7 +19,7 @@ public class BusSearch_Page extends BasePage {
 	public @FindBy(xpath="//input[@name='txtReturnJourneyDate']") WebElement returnJourneyDate;
 	public @FindBy(xpath="//div[@class='ui-datepicker-title']//span[@class='ui-datepicker-month']") WebElement month;
 	public @FindBy(xpath="//a[@title='Next']") WebElement return_Next;
-	public @FindBy(xpath="//button[contains(text(),'Search for Bus')]") WebElement searchButton;
+	public @FindBy(xpath="//button[@class='btn btn-primary btn-lg btn-block btn-booking']") WebElement searchButton;
 	public @FindBy(xpath="//div[contains(text(),'Note: Seat availability is displayed based on minimum distance criteria in advance booking.')]") WebElement searchValidation;
 
 	public BusSearch_Page() throws IOException{
@@ -66,7 +66,8 @@ public class BusSearch_Page extends BasePage {
 		return new BusSearch_Page();
 	}
 	public BusSearch_Page clickOnSearchButton() throws Exception{
-		waitAndClickElement(searchButton);
+		waitAndclickElementUsingJS(searchButton);
+		//waitAndClickElement(searchButton);
 		return new BusSearch_Page();
 	}
 	public BusSearch_Page confirmSearchWasSuccessful() throws Exception{
