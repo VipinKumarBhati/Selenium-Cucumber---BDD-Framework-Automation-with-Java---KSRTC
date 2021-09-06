@@ -24,8 +24,6 @@ public class Login_Page extends BasePage{
 		super();
 		PageFactory.initElements(driver, this);
 	}
-	
-	
 	public Login_Page getKRSTC_Page() throws IOException{
 		Properties p = new Properties();
 		FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + pathSeparator() + "src"+ pathSeparator() +"main"+ pathSeparator() +"java"+ pathSeparator() +"config"+ pathSeparator() +"config.properties");
@@ -35,36 +33,30 @@ public class Login_Page extends BasePage{
 		getDriver().get(url);;
 		return new Login_Page();
 	}
-	
 	public Login_Page clickOnSignInLink() throws IOException, Exception{
 		waitAndClickElement(signIn);
 		return new Login_Page();
 	}
-	
 	public Login_Page enterUserName(String username) throws Exception{
 		//waitAndClickElement(userName);
 		sendKeysToWebElement(userName, username);
 		return new Login_Page();
 	}
-	
 	public Login_Page enterPassword(String passWord) throws Exception{
 		//waitAndClickElement(password);
 		sendKeysToWebElement(password, passWord);
 		return new Login_Page();
 	}
-	
 	public Login_Page clickOnLoginButton() throws Exception{
 		waitAndClickElement(logIn);
 		return new Login_Page();
 	}
-	
 	public Login_Page confirmLoginWasSuccessful() throws Exception{
 		WaitUntilWebElementIsVisible(validLogin_Welcome);
 		waitAndClickElement(validLogin_Welcome);
 		Assert.assertEquals(validLogin_Verify.getText().toLowerCase().replaceAll("[ ()0-9]",""),"logout");
 		return new Login_Page();		
 	}
-	
 	public Login_Page confirmLoginWasUnsuccessful() throws Exception{
 		WaitUntilWebElementIsVisible(inValidLogin_Verify);
 		Assert.assertEquals(inValidLogin_Verify.getText().toLowerCase().replaceAll("[ ()0-9]",""),"loginincorrect.pleasetryagain");

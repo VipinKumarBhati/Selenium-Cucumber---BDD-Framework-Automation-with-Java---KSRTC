@@ -22,7 +22,8 @@ import org.junit.runner.RunWith;
 		glue = {"stepDefinitions"},
 		monochrome = true,
 		tags = {"@validLoginTest,@invalidLoginTest,@searchBus"},
-		plugin = {"pretty","html:target/cucumber","json:target/cucumber.json","com.cucumber.listener.ExtentCucumberFormatter:target/report.html","com.cucumber.listener.ExtentCucumberFormatter:target/report.html"}
+		plugin = {"pretty","html:target/cucumber","json:target/cucumber.json","com.cucumber.listener.ExtentCucumberFormatter:target/report.html",
+					"com.cucumber.listener.ExtentCucumberFormatter:target/report.html"}
 		)
 public class MainRunner extends AbstractTestNGCucumberTests{
 }

@@ -1,12 +1,9 @@
 package stepDefinitions;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.But;
 import cucumber.api.java.en.Given;
@@ -31,7 +28,8 @@ public class Login_Valid_KSRTC_Steps extends DriverFactory{
 	public void user_enters_valid_username_and_password_from_sheetname_and_row_number(String sheetName, int rowNumber) throws Throwable {
 		ExcelReader reader = new ExcelReader();
 		List<Map<String,String>> testData = 
-				reader.getData(System.getProperty("user.dir") + BasePage.pathSeparator() + "src"+ BasePage.pathSeparator() + "main" + BasePage.pathSeparator() + "java" + BasePage.pathSeparator() + "testdata" + BasePage.pathSeparator() + "controller.xlsx", sheetName);
+				reader.getData(System.getProperty("user.dir") + BasePage.pathSeparator() + "src"+ BasePage.pathSeparator() + "main" + BasePage.pathSeparator() + "java" 
+								+ BasePage.pathSeparator() + "testdata" + BasePage.pathSeparator() + "controller.xlsx", sheetName);
 		
 		String username = testData.get(rowNumber).get("username");
 		String password = testData.get(rowNumber).get("password");

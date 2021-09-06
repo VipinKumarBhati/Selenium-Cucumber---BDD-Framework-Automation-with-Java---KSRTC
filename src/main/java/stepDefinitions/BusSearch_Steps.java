@@ -15,7 +15,8 @@ public class BusSearch_Steps extends DriverFactory{
 	public void user_enters_the_source_and_destination_from_sheet_and_row_number(String sheetName, int rowNumber) throws Throwable {
 		ExcelReader reader = new ExcelReader();
 		List<Map<String,String>> testData = 
-				reader.getData(System.getProperty("user.dir") + BasePage.pathSeparator() + "src"+ BasePage.pathSeparator() + "main" + BasePage.pathSeparator() + "java" + BasePage.pathSeparator() + "testdata" + BasePage.pathSeparator() + "controller.xlsx", sheetName);
+				reader.getData(System.getProperty("user.dir") + BasePage.pathSeparator() + "src"+ BasePage.pathSeparator() + "main" + BasePage.pathSeparator() + "java"
+								+ BasePage.pathSeparator() + "testdata" + BasePage.pathSeparator() + "controller.xlsx", sheetName);
 		
 		String source = testData.get(rowNumber).get("source");
 		String destination = testData.get(rowNumber).get("destination");

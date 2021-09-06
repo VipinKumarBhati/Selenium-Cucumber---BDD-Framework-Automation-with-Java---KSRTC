@@ -14,11 +14,6 @@ public class MasterHooks extends DriverFactory{
 
 	@Before()
 	public void setup() {
-		/*if(driver != null){
-			System.out.println("Hello");
-			driver = null;
-			driver = DriverFactory.getDriver();
-		}*/
 		driver = getDriver();
 	}
 

@@ -16,8 +16,7 @@ import org.testng.ITestResult;
 import reporter.ExtentReportManager;
 
 public class Listeners implements ITestListener {
-	 
-    //Extent Report Declarations
+	//Extent Report Declarations
     public static ExtentReports extent = ExtentReportManager.createInstance();
     public static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
     public static ExtentTest parentNode;
@@ -28,13 +27,11 @@ public class Listeners implements ITestListener {
     public synchronized void onStart(ITestContext context) {
         System.out.println("Cucumber BDD Framework Test Suite started!");
     }
- 
     @Override
     public synchronized void onFinish(ITestContext context) {
         System.out.println("Cucumber BDD Framework Test Suite is ending!");
         extent.flush();
     }
- 
     @Override
     public synchronized void onTestStart(ITestResult result) {
     	String parameterList = null;
@@ -49,8 +46,6 @@ public class Listeners implements ITestListener {
         	System.out.println("Parameters : " + parameterList);
         }
         System.out.println(("Class: " + result.getMethod().getRealClass().getSimpleName()));
-//        ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName(),result.getMethod().getDescription());
-//        test.set(extentTest);
         currentClassName = result.getMethod().getRealClass().getSimpleName();
         if (!previousClassName.equals(currentClassName)){
         	test.set(extent.createTest(result.getMethod().getRealClass().getSimpleName()));
@@ -61,7 +56,6 @@ public class Listeners implements ITestListener {
         else
         	test.set(test.get().createNode(result.getMethod().getMethodName() + " [ " + parameterList + " ]",result.getMethod().getDescription()));
     }
-    
     @Override
     public synchronized void onTestSuccess(ITestResult result) {
         System.out.println((result.getMethod().getMethodName() + " passed!"));
@@ -69,7 +63,6 @@ public class Listeners implements ITestListener {
         previousClassName = currentClassName;
         test.set(parentNode);
     }
- 
     @Override
     public synchronized void onTestFailure(ITestResult result) {
         System.out.println((result.getMethod().getMethodName() + " failed!"));
@@ -84,7 +77,6 @@ public class Listeners implements ITestListener {
         previousClassName = currentClassName;
         test.set(parentNode);
     }
- 
     @Override
     public synchronized void onTestSkipped(ITestResult result) {
         System.out.println((result.getMethod().getMethodName() + " skipped!"));
@@ -93,7 +85,6 @@ public class Listeners implements ITestListener {
         previousClassName = currentClassName;
         test.set(parentNode);
     }
- 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
         System.out.println(("onTestFailedButWithinSuccessPercentage for " + result.getMethod().getMethodName()));

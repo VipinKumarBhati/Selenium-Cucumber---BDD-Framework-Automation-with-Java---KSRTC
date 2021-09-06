@@ -1,6 +1,5 @@
 package reporter;
 
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
@@ -21,7 +20,6 @@ public class ExtentReportManager {
             createInstance();
         return extent;
     }
-
     //Create an extent report instance
     public static ExtentReports createInstance() {
         platform = getCurrentPlatform();
@@ -32,13 +30,10 @@ public class ExtentReportManager {
         htmlReporter.config().setEncoding("utf-8");
         htmlReporter.config().setReportName(fileName);
         htmlReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
-
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
-
         return extent;
     }
-
     //Select the extent report file location based on platform
     private static String getReportFileLocation (Platform platform) {
         String reportFileLocation = null;
@@ -64,7 +59,6 @@ public class ExtentReportManager {
         }
         return reportFileLocation;
     }
-
     //Create the report path if it does not exist
     private static void createReportPath (String path) {
         File testDirectory = new File(path);
@@ -78,7 +72,6 @@ public class ExtentReportManager {
             System.out.println("Directory already exists: " + path);
         }
     }
-
     //Get current platform
     private static Platform getCurrentPlatform () {
         if (platform == null) {

@@ -33,7 +33,8 @@ public class DriverFactory {
 			//String browserName = file.getBrowser();
 			
 			Properties p = new Properties();
-			FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + BasePage.pathSeparator() + "src" + BasePage.pathSeparator() + "main" + BasePage.pathSeparator() + "java" + BasePage.pathSeparator() + "config" + BasePage.pathSeparator() + "config.properties");
+			FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + BasePage.pathSeparator() + "src" + BasePage.pathSeparator() + "main" + BasePage.pathSeparator() + "java" 
+										+ BasePage.pathSeparator() + "config" + BasePage.pathSeparator() + "config.properties");
 			p.load(fi);
 			String browserName = p.getProperty("browser");
 			String operSys = System.getProperty("os.name").toLowerCase();
